@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Build-image
-        run: docker build . --file Dockerfile --tag legacy_default:$(date)
+        run: docker build --file Dockerfile --tag legacy_default:$(date) .
         
         
       - name: Log in to Docker Hub
