@@ -35,7 +35,7 @@ RUN conda --version && \
     conda config --append channels esgf && \
     conda install -c conda-forge mamba
 
-COPY pinned_r_conda_environment.yml
+COPY pinned_r_conda_environment.yml .
 COPY r_conda_environment.yml .
 COPY lib_conda_environment.yml .
 COPY biocond_conda_environment.yml .
