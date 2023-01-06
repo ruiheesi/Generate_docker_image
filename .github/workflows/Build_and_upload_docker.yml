@@ -1,8 +1,9 @@
 name: Build_and_upload_docker
 run-name: ${{ github.actor }} is generating NAMESPACE file
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+    - main
 jobs:
   Build-img-and-push:
     runs-on: ubuntu-latest
