@@ -42,9 +42,9 @@ COPY lib_conda_environment.yml .
 COPY biocond_conda_environment.yml .
 
 RUN conda init bash && \
-    conda env create -f lib_conda_environment.yml && \
-    conda env update -f r_conda_environment.yml && \
-    conda env update -f biocond_conda_environment.yml
+    conda env create -f lib_conda_environment.yml
+RUN conda env update -f r_conda_environment.yml
+RUN conda env update -f biocond_conda_environment.yml
     
 RUN wget https://github.com/CCBR/l2p/blob/master/r-l2p-0.0_13-r35_0.tar.bz2?raw=true -O /tmp/r-l2p-0.0_13-r35_0.tar.bz2
 RUN conda install /tmp/r-l2p-0.0_13-r35_0.tar.bz2
