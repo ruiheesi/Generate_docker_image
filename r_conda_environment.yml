@@ -78,8 +78,6 @@ dependencies:
 - r-iterators=1.0.12
 - r-kernsmooth=2.23_17
 - r-knitr=1.28
-- r-l2p=0.0_13
-- r-l2psupp=0.0_13
 - r-labeling=0.3
 - r-lambda.r=1.2.4
 - r-later=1.0.0
