@@ -41,7 +41,6 @@ COPY lib_conda_environment.yml .
 COPY biocond_conda_environment.yml .
 
 RUN conda init bash && \
-    mamba env create -n bulk_rna_seq && \
     mamba env update -n bulk_rna_seq -f lib_conda_environment.yml
 
 RUN mamba env update -n bulk_rna_seq -f r_conda_environment.yml
