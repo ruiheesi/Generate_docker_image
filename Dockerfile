@@ -35,14 +35,18 @@ RUN conda --version && \
     conda config --append channels esgf && \
     conda install -c conda-forge mamba
 
-
+COPY pinned_r_conda_environment.yml
 COPY r_conda_environment.yml .
 COPY lib_conda_environment.yml .
 COPY biocond_conda_environment.yml .
 
 RUN conda init bash && \
     mamba env update -f lib_conda_environment.yml
+
 RUN mamba env update -f r_conda_environment.yml
+
+RUN mamba env update -f pinned_r_conda_environment.yml
+
 RUN mamba env update -f biocond_conda_environment.yml
     
 RUN wget https://github.com/CCBR/l2p/blob/master/r-l2p-0.0_13-r35_0.tar.bz2?raw=true -O /tmp/r-l2p-0.0_13-r35_0.tar.bz2
