@@ -40,7 +40,9 @@ RUN conda --version && \
 COPY environment.yml .
 
 RUN conda init bash && \
-    mamba env update -f environment.yml
+    mamba env update -f r_conda_environment.yml && \
+    mamba env update -f r_conda_environment.yml && \
+    mamba env update -f r_conda_environment.yml
 
 RUN echo "source activate single-cell-test-Rbase" > ~/.bashrc && \
     echo "TMPDIR=/mnt" > /root/.Renviron
