@@ -29,7 +29,7 @@ dependencies:
 - r-openssl=1.4.1
 - r-pheatmap=1.0.12
 - r-pkgbuild=1.0.7
-- r-pkgconfig=2.0.1
+- r-pkgconfig
 - r-pkgload=1.0.2
 - r-png=0.1_7
 - r-progress=1.2.2
@@ -37,13 +37,13 @@ dependencies:
 - r-renv
 - r-renv=0.9.3
 - r-rjson=0.2.20
-- r-rlang=0.4.10
+- r-rlang
 - r-rmarkdown=2.1
 - r-rsqlite=2.2.0
 - r-scales=1.1.0
 - r-svglite=1.2.3
 - r-sys=3.3
-- r-unix=1.5.4
+- r-unix
 - r-utf8=1.1.4
 - r-xml2=1.3.2
 - r-xml=3.99_0.3
