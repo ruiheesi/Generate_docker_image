@@ -80,8 +80,6 @@ dependencies:
 - r-jsonlite=1.6.1
 - r-kernsmooth=2.23_17
 - r-knitr=1.28
-- r-l2p=0.0_13
-- r-l2psupp=0.0_13
 - r-labeling=0.3
 - r-lambda.r=1.2.4
 - r-later=1.0.0
@@ -143,7 +141,7 @@ dependencies:
 - r-rvest=0.3.5
 - r-scales=1.1.0
 - r-selectr=0.4_2
-- r-seriation=1.2_2
+- r-seriation=1.2_3
 - r-shape=1.4.4
 - r-shiny=1.4.0.2
 - r-snow=0.4_3

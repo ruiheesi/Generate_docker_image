@@ -21,11 +21,11 @@ ARG PATH="/root/miniconda3/bin:${PATH}"
 
 RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 
-RUN wget\
-    https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-Linux-x86_64.sh \
-    && mkdir /root/.conda \
-    && bash Miniconda3-py37_4.8.2-Linux-x86_64.sh  -b \
-    && rm -f Miniconda3-py37_4.8.2-Linux-x86_64.sh
+# RUN wget\
+#    https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-Linux-x86_64.sh \
+#    && mkdir /root/.conda \
+#    && bash Miniconda3-py37_4.8.2-Linux-x86_64.sh  -b \
+#    && rm -f Miniconda3-py37_4.8.2-Linux-x86_64.sh
 
 RUN conda --version && \
     conda config --append channels defaults && \
@@ -45,6 +45,11 @@ RUN conda init bash && \
     conda env create -f lib_conda_environment.yml && \
     conda env update -f r_conda_environment.yml && \
     conda env update -f biocond_conda_environment.yml
+    
+RUN wget https://github.com/CCBR/l2p/blob/master/r-l2p-0.0_13-r35_0.tar.bz2?raw=true -O /tmp/r-l2p-0.0_13-r35_0.tar.bz2
+RUN conda install /tmp/r-l2p-0.0_13-r35_0.tar.bz2
+RUN wget https://github.com/CCBR/l2p/blob/master/r-l2psupp-0.0_13-r35_0.tar.bz2?raw=true -O /tmp/r-l2psupp-0.0_13-r35_0.tar.bz2
+RUN conda install /tmp/r-l2psupp-0.0_13-r35_0.tar.bz2
 
 RUN echo "source activate single-cell-test-Rbase" > ~/.bashrc && \
     echo "TMPDIR=/mnt" > /root/.Renviron
