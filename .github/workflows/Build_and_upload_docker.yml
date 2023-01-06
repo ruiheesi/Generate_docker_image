@@ -3,7 +3,8 @@ run-name: ${{ github.actor }} is generating NAMESPACE file
 on:
   push:
     branches:
-    - main
+      - main
+      - master
 jobs:
   Build-img-and-push:
     runs-on: ubuntu-latest
