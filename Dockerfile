@@ -16,19 +16,18 @@ ENV LANG en_US.UTF-8
 
 RUN pwd
 
-ENV PATH="/root/miniconda3/bin:${PATH}"
-ARG PATH="/root/miniconda3/bin:${PATH}"
-
 RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 
 RUN wget\
-    https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.2-Linux-x86_64.sh \
+    https://repo.anaconda.com/miniconda/Miniconda3-py37_4.12.0-Linux-x86_64.sh \
     && mkdir /root/.conda \
-    && bash Miniconda3-py37_4.8.2-Linux-x86_64.sh  -b \
-    && rm -f Miniconda3-py37_4.8.2-Linux-x86_64.sh
+    && bash Miniconda3-py37_4.12.0-Linux-x86_64.sh  -b \
+    && rm -f Miniconda3-py37_4.12.0-Linux-x86_64.sh
+
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
 
 RUN conda --version && \
-    conda config --append channels defaults && \
     conda config --append channels anaconda && \
     conda config --append channels bioconda && \
     conda config --append channels conda-forge && \
@@ -42,14 +41,14 @@ COPY lib_conda_environment.yml .
 COPY biocond_conda_environment.yml .
 
 RUN conda init bash && \
-    conda env create -f lib_conda_environment.yml
-RUN conda env update -f r_conda_environment.yml
-RUN conda env update -f biocond_conda_environment.yml
+    mamba env update -f lib_conda_environment.yml
+RUN mamba env update -f r_conda_environment.yml
+RUN mamba env update -f biocond_conda_environment.yml
     
 RUN wget https://github.com/CCBR/l2p/blob/master/r-l2p-0.0_13-r35_0.tar.bz2?raw=true -O /tmp/r-l2p-0.0_13-r35_0.tar.bz2
-RUN conda install /tmp/r-l2p-0.0_13-r35_0.tar.bz2
+RUN mamba install /tmp/r-l2p-0.0_13-r35_0.tar.bz2
 RUN wget https://github.com/CCBR/l2p/blob/master/r-l2psupp-0.0_13-r35_0.tar.bz2?raw=true -O /tmp/r-l2psupp-0.0_13-r35_0.tar.bz2
-RUN conda install /tmp/r-l2psupp-0.0_13-r35_0.tar.bz2
+RUN mamba install /tmp/r-l2psupp-0.0_13-r35_0.tar.bz2
 
 RUN echo "source activate single-cell-test-Rbase" > ~/.bashrc && \
     echo "TMPDIR=/mnt" > /root/.Renviron

@@ -17,4 +17,4 @@ dependencies:
 - bioconductor-limma=3.38.3
 - bioconductor-s4vectors=0.20.1
 - bioconductor-sva=3.30.1
-name: buil_rna_seq
+name: bulk_rna_seq

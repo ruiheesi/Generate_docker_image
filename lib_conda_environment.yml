@@ -139,4 +139,4 @@ dependencies:
 - yaml=0.2.5
 - zlib=1.2.12
 - zstd=1.4.5
-name: buil_rna_seq
+name: bulk_rna_seq
