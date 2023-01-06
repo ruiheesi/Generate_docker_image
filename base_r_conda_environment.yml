@@ -43,6 +43,7 @@ dependencies:
 - r-scales
 - r-svglite
 - r-sys
+- r-unix
 - r-utf8
 - r-xml
 - r-xml2
