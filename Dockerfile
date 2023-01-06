@@ -42,9 +42,9 @@ COPY lib_conda_environment.yml .
 COPY biocond_conda_environment.yml .
 
 RUN conda init bash && \
-    mamba env update -f lib_conda_environment.yml && \
-    mamba env update -f r_conda_environment.yml && \
-    mamba env update -f biocond_conda_environment.yml
+    conda env create -f lib_conda_environment.yml && \
+    conda env update -f r_conda_environment.yml && \
+    conda env update -f biocond_conda_environment.yml
 
 RUN echo "source activate single-cell-test-Rbase" > ~/.bashrc && \
     echo "TMPDIR=/mnt" > /root/.Renviron
